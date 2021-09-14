@@ -1,0 +1,5 @@
+@use "../../styles/global.module";
+
+.footerContainer {
+  @extend .globalContainer
+}
