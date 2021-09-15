@@ -2,4 +2,7 @@
 
 .headerContainer {
   @extend .globalContainer;
+
+  display: flex;
+  justify-content: space-between;
 }
