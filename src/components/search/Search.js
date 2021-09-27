@@ -21,7 +21,6 @@ export const Search = () => {
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&type=video&q=${searchTerm}&safeSearch=none&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
       )
       .then(response => {
-        console.log(response.data.items);
         dispatch(addSearchResults(response.data.items));
       })
       .catch(err => console.log(err));
