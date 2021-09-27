@@ -5,7 +5,6 @@ export const searchResultsSlice = createSlice({
   initialState: { videos: [] },
   reducers: {
     addSearchResults: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.videos = action.payload;
     },
   },
