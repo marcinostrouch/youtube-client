@@ -12,7 +12,7 @@ export const selectedVideoSlice = createSlice({
     viewCount: "",
   },
   reducers: {
-    addSelectedVideo: (state, action) => {
+    selectVideo: (state, action) => {
       const {
         videoId,
         title,
@@ -37,5 +37,5 @@ export const selectedVideoSlice = createSlice({
   },
 });
 
-export const { addSelectedVideo } = selectedVideoSlice.actions;
+export const { selectVideo } = selectedVideoSlice.actions;
 export default selectedVideoSlice.reducer;

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addSearchResults } from "../../redux/searchResults";
+import { addSearchResults, setIsLoading } from "../../redux/searchResults";
 import * as searchStyles from "./search.module.scss";
+
+// TODO: Add search suggestions
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -16,6 +18,8 @@ export const Search = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    dispatch(setIsLoading(true));
+
     axios
       .get(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&type=video&q=${searchTerm}&safeSearch=none&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
@@ -24,6 +28,8 @@ export const Search = () => {
         dispatch(addSearchResults(response.data.items));
       })
       .catch(err => console.log(err));
+
+    dispatch(setIsLoading(false));
   };
 
   return (

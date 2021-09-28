@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addSelectedVideo } from "../../redux/selectedVideo";
+import { selectVideo } from "../../redux/selectedVideo";
 
 export const VideoListItem = ({ videoItem }) => {
   const { channelTitle, viewCount, timeStamp, title, imageUrl } = videoItem;
@@ -8,7 +8,7 @@ export const VideoListItem = ({ videoItem }) => {
   const dispatch = useDispatch();
 
   const handleClick = video => {
-    dispatch(addSelectedVideo(video));
+    dispatch(selectVideo(video));
   };
 
   return (
