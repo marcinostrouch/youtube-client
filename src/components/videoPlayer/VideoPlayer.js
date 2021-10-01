@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
-import YouTube from "react-youtube";
+import React, { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
 import * as videoPlayerStyles from "./videoPlayer.module.scss";
 
 export const VideoPlayer = ({ videoId }) => {
   const [windowWidth, setWindowWidth] = useState(0);
-  const [playerWidth, setPlayerWidth] = useState(660);
+  const [playerWidth, setPlayerWidth] = useState(0);
+
+  const videoUrl = `https://www.youtube.com/watch?v=${
+    videoId || "6JQm5aSjX6g"
+  }} `;
 
   const updateDimensions = () => {
     const x = window.innerWidth;
@@ -19,21 +23,23 @@ export const VideoPlayer = ({ videoId }) => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  console.log("windowWidth ===", windowWidth);
-
   useEffect(() => {
-    if (windowWidth > 660) {
+    if (windowWidth > 992) {
       setPlayerWidth(windowWidth - 300);
+    } else {
+      setPlayerWidth(windowWidth);
     }
   }, [windowWidth]);
 
-  const opts = {
-    width: playerWidth,
-    playerVars: { autoplay: 1 },
-  };
   return (
     <div className={videoPlayerStyles.videoPlayer}>
-      <YouTube {...{ videoId, opts }} />
+      <ReactPlayer
+        height={`${(playerWidth * 9) / 16}px`}
+        width={`${playerWidth}px`}
+        url={videoUrl}
+        config={{ youtube: { playerVars: { autoplay: 1 } } }}
+        controls
+      />
     </div>
   );
 };

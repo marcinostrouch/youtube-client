@@ -10,9 +10,9 @@
     "axios": "^0.21.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-player": "^2.9.0",
     "react-redux": "^7.2.5",
     "react-scripts": "4.0.3",
-    "react-youtube": "^7.13.1",
     "sass": "^1.39.2",
     "web-vitals": "^1.0.1"
   },

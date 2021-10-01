@@ -1,4 +1,7 @@
 .sidebarContainer {
-  padding-left: 1rem;
-  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
