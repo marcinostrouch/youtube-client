@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addSearchResults, setIsLoading } from "../../redux/searchResults";
@@ -10,7 +10,13 @@ import SearchIcon from "../../assets/search.svg";
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  const inputEl = useRef(null);
+
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    inputEl.current.focus();
+  }, []);
 
   const handleInputChange = e => {
     setSearchTerm(e.target.value);
@@ -37,6 +43,7 @@ export const Search = () => {
     <div className={searchStyles.searchContainer}>
       <form className={searchStyles.searchForm} onSubmit={e => handleSubmit(e)}>
         <input
+          ref={inputEl}
           type="search"
           className={searchStyles.inputField}
           placeholder="Search"
