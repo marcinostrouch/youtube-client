@@ -10,7 +10,6 @@ const Video = () => {
 
   return (
     <div className={videoStyles.videoContainer}>
-      <h2>Video component</h2>
       <VideoPlayer {...{ videoId }} />
     </div>
   );

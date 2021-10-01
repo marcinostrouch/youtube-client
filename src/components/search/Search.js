@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addSearchResults, setIsLoading } from "../../redux/searchResults";
 import * as searchStyles from "./search.module.scss";
+import SearchIcon from "../../assets/search.svg";
 
 // TODO: Add search suggestions
 
@@ -34,15 +35,20 @@ export const Search = () => {
 
   return (
     <div className={searchStyles.searchContainer}>
-      <form onSubmit={e => handleSubmit(e)}>
+      <form className={searchStyles.searchForm} onSubmit={e => handleSubmit(e)}>
         <input
-          type="text"
+          type="search"
+          className={searchStyles.inputField}
           placeholder="Search"
           value={searchTerm}
           onChange={e => handleInputChange(e)}
         />
-        <button type="submit" aria-label="Search">
-          SearchBtnIcon
+        <button type="submit" className={searchStyles.submitButton}>
+          <img
+            className={searchStyles.searchIcon}
+            src={SearchIcon}
+            alt="search icon"
+          />
         </button>
       </form>
     </div>

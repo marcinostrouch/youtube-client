@@ -5,4 +5,23 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 21vh;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  background-color: maroon;
+
+  @media screen and (min-width: 768px) {
+    height: 10vh;
+  }
+}
+
+.logo {
+  height: 2.1rem;
+
+  @media screen and (min-width: 768px) {
+    height: 5vh;
+  }
 }

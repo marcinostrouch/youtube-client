@@ -1,4 +1,41 @@
 .searchContainer {
-  flex-grow: 3;
   padding: 2rem;
+  margin: 0 auto;
+  background-color: maroon;
+  height: 21vh;
+
+  @media screen and (min-width: 768px) {
+    height: 10vh;
+  }
+}
+.searchForm {
+  display: flex;
+}
+
+.inputField {
+  font-size: 2.1rem;
+  height: 3.4rem;
+  padding: 0 1rem;
+  outline: none;
+  border: none;
+  border-bottom: solid 1px red;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.6rem;
+    height: 2.4rem;
+  }
+
+}
+
+.submitButton {
+  border: none;
+  background-color: transparent;
+
+  .searchIcon {
+    height: 2.1rem;
+
+    @media screen and (min-width: 768px) {
+      height: 1.6rem;
+    }
+  }
 }

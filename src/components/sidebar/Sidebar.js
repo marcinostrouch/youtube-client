@@ -53,12 +53,9 @@ export const Sidebar = () => {
 
   return (
     <div className={sidebarStyles.sidebarContainer}>
-      <h2>Sidebar</h2>
-      <div>
-        {videoListItems.map(item => (
-          <VideoListItem videoItem={item} />
-        ))}
-      </div>
+      {videoListItems.map(item => (
+        <VideoListItem videoItem={item} />
+      ))}
     </div>
   );
 };
