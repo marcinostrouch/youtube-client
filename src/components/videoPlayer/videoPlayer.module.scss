@@ -1,4 +1,10 @@
-.videoPlayer {
-  //position: sticky;
-  //top: 10vh;
+.playerWrapper {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.reactPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
