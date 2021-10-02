@@ -24,7 +24,7 @@ export const VideoListItem = ({ videoItem }) => {
       <img src={imageUrl} alt="" />
 
       <div className={videoListItemStyles.metaData}>
-        <h3>{title}</h3>
+        <h2>{title}</h2>
         <div className={videoListItemStyles.secondaryMetaData}>
           <div className={videoListItemStyles.channelName}>{channelTitle}</div>
 
