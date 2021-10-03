@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useMemo } from "react";
 import ReactPlayer from "react-player";
 import * as videoPlayerStyles from "./videoPlayer.module.scss";
 
 export const VideoPlayer = ({ videoId }) => {
-  const videoUrl = `https://www.youtube.com/watch?v=${
-    videoId || "6JQm5aSjX6g"
-  }} `;
+  const videoUrl = useMemo(
+    () => `https://www.youtube.com/watch?v=${videoId}}`,
+    [videoId]
+  );
 
   return (
     <div className={videoPlayerStyles.playerWrapper}>

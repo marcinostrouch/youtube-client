@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import ContentLoader from "react-content-loader";
 import { useSelector } from "react-redux";
 import { VideoListItem } from "../videoListItem/VideoListItem";
 import * as sidebarStyles from "./sidebar.module.scss";
@@ -7,7 +8,7 @@ import * as sidebarStyles from "./sidebar.module.scss";
 export const Sidebar = () => {
   const [videoListItems, setVideoListItems] = useState([]);
 
-  const { videos } = useSelector(state => state.searchResults);
+  const { isLoading, videos } = useSelector(state => state.searchResults);
 
   const createVideoListItems = videoResults =>
     Promise.all(
@@ -50,6 +51,25 @@ export const Sidebar = () => {
       setVideoListItems(videoItems)
     );
   }, [videos]);
+
+  if (isLoading) {
+    // TODO:
+    //  *  Improve ContentLoader responsiveness
+    return (
+      <div>
+        <ContentLoader
+          speed={1}
+          width={300}
+          height={500}
+          viewBox="0 0 300 500"
+          backgroundColor="#fff"
+          foregroundColor="#fff"
+        >
+          <rect x="0" y="0" rx="5" ry="5" width="300" height="500" />
+        </ContentLoader>
+      </div>
+    );
+  }
 
   return (
     <div className={sidebarStyles.sidebarContainer}>

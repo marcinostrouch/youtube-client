@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+// import ContentLoader from "react-content-loader";
 import { selectVideo } from "../../redux/selectedVideo";
+import { VideoThumbnail } from "../videoThumbnail/VideoThumbnail";
 import * as videoListItemStyles from "./videoListItem.module.scss";
 
 // TODO: convert timestamp to a  "time from now" value
@@ -21,8 +23,7 @@ export const VideoListItem = ({ videoItem }) => {
       role="button"
       onClick={() => handleClick(videoItem)}
     >
-      <img src={imageUrl} alt="" />
-
+      <VideoThumbnail imgSrc={imageUrl} />
       <div className={videoListItemStyles.metaData}>
         <h2>{title}</h2>
         <div className={videoListItemStyles.secondaryMetaData}>

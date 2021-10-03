@@ -1,14 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addSearchResults, setIsLoading } from "../../redux/searchResults";
 import * as searchStyles from "./search.module.scss";
 import SearchIcon from "../../assets/search.svg";
 
-// TODO: Add search suggestions
+const DEFAULT_SEARCH_TERM = "chaos theory";
 
+// TODO: Add search suggestions
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const { videos } = useSelector(state => state.searchResults);
 
   const inputEl = useRef(null);
 
@@ -23,21 +26,32 @@ export const Search = () => {
   };
 
   const handleSubmit = e => {
-    e.preventDefault();
+    e?.preventDefault();
 
     dispatch(setIsLoading(true));
 
     axios
       .get(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&type=video&q=${searchTerm}&safeSearch=none&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=9&type=video&q=${
+          searchTerm || DEFAULT_SEARCH_TERM
+        }&safeSearch=none&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
       )
       .then(response => {
         dispatch(addSearchResults(response.data.items));
+        dispatch(setIsLoading(false));
       })
-      .catch(err => console.log(err));
-
-    dispatch(setIsLoading(false));
+      .catch(err => {
+        console.log(err);
+        dispatch(setIsLoading(false));
+      });
   };
+
+  // Temporary solution for missing "recent search results" or "recommended videos"
+  useEffect(() => {
+    if (videos.length === 0) {
+      handleSubmit();
+    }
+  }, []);
 
   return (
     <div className={searchStyles.searchContainer}>
