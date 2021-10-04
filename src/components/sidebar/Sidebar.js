@@ -56,7 +56,7 @@ export const Sidebar = () => {
     // TODO:
     //  *  Improve ContentLoader responsiveness
     return (
-      <div>
+      <div className={sidebarStyles.sidebarContainer}>
         <ContentLoader
           speed={1}
           width={300}

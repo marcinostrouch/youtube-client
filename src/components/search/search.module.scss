@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .searchContainer {
   display: flex;
   align-items: center;
@@ -15,10 +17,10 @@
   margin-left: 1rem;
   outline: none;
   border: none;
-  border-bottom: solid 1px red;
+  border-bottom: solid 1px $red;
   width: 40vw;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     font-size: 1.6rem;
     height: 2.1rem;
   }
@@ -29,9 +31,9 @@
   background-color: transparent;
 
   .searchIcon {
-    height: 1.6rem;
+    height: 1rem;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       height: 1.6rem;
     }
   }

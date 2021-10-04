@@ -7,7 +7,9 @@ import SearchIcon from "../../assets/search.svg";
 
 const DEFAULT_SEARCH_TERM = "chaos theory";
 
-// TODO: Add search suggestions
+// TODO:
+//    Add search suggestions / autocomplete
+//    Add mobile search modal
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
 

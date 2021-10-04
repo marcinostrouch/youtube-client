@@ -1,9 +1,13 @@
 @use "../../styles/global.module";
 
+@import "../../styles/variables.scss";
+
+
+
 .headerContainer {
   @extend .globalContainer;
 
-  background-color: #fff;
+  background-color: $white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +22,7 @@
 .logo {
   height: 1.6rem;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     height: 5vh;
   }
 }

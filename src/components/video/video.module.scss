@@ -1,9 +1,11 @@
+@import "../../styles/variables.scss";
+
 .videoContainer {
   position: sticky;
   top: 10vh;
   width: 100vw;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     flex-grow: 3;
     position: static;
   }

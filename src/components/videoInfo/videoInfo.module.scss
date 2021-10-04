@@ -1,13 +1,15 @@
+@import "../../styles/variables.scss";
+
 .metaData {
   padding: 0.8rem;
-  background-color: #fff;
-  border-bottom: 1px solid red;
+  background-color: $white;
+  border-bottom: 1px solid $red;
 
   h1 {
     font-size: 1rem;
     margin-top: 0;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       font-size: 1.2rem;
     }
   }
