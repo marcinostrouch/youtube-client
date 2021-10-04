@@ -2,6 +2,11 @@
 
 The app allows users to search for Youtube videos and watch the results in the app's video player.
 
+> Please bear in mind that in order to run this code on your local machine (with the search functionality working) you need to **provide your own API key** in the .env file in the root folder.
+> 
+>You may get the key for free from [Google Cloud Platform](https://console.cloud.google.com/apis)
+>
+
 
 ![YT Player mobile](src/assets/yt-player-mobile.jpeg)
 ![YT Player desktop](src/assets/yt-player-desktop.jpeg)
